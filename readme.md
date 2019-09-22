@@ -4,4 +4,4 @@
 
 - basic
   - $ ``ln -s $(pwd)/.env.example .env``
-  - $ ``npm serve``
+  - $ ``npm run serve`` or $ ``nodemon app.js``
