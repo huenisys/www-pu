@@ -8,6 +8,7 @@ if (result.error) {
 const { parsed: cfg } = result;
 
 module.exports = {
+  ...cfg,
   cfg,
   config: {
     app: {

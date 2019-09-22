@@ -2,7 +2,7 @@
 
 const http = require('http');
 
-const { cfg } = require('./_config.js');
+const { cfg, APP_NAME, APP_IP, APP_PORT } = require('./_config.js');
 
 const mapText = Object.keys(cfg)
     .map(key => key+': '+cfg[key])
@@ -17,12 +17,12 @@ const serve = (ip, port) => {
     })
     .listen(port, ip);
 
-  console.log('Serving from: http://'+cfg.APP_IP+':'+cfg.APP_PORT);
+  console.log('Serving from: http://'+APP_IP+':'+APP_PORT);
 }
 
 const app = {
-  contentBody: `${mapText}\n\n${cfg.APP_NAME} is ready!`,
+  contentBody: `${mapText}\n\n${APP_NAME} is ready!`,
   serve
 }
 
-app.serve(cfg.APP_IP, cfg.APP_PORT);
+app.serve(APP_IP, APP_PORT);
