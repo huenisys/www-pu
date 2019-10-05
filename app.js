@@ -2,11 +2,11 @@
 
 const http = require('http');
 
-const { cfg, APP_NAME, APP_IP, APP_PORT } = require('./_config.js');
+const { cfg, APP_NAME, APP_IP, APP_PORT, APP_DEBUG, APP_ENV } = require('./_config.js');
 
-const mapText = Object.keys(cfg)
+const debugText = Object.keys(cfg)
     .map(key => key+': '+cfg[key])
-    .join(`\n`);
+    .join(`\n`) + "\n\n";
 
 const serve = (ip, port) => {
 
@@ -21,7 +21,7 @@ const serve = (ip, port) => {
 }
 
 const app = {
-  contentBody: `${mapText}\n\n${APP_NAME} is ready!`,
+  contentBody: (APP_DEBUG === 'true' ? debugText : '') +`${APP_NAME} (${APP_ENV}) is ready!`,
   serve
 }
 
